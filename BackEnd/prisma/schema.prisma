@@ -1,0 +1,35 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model pessoas {
+  
+  id              String            @id @default(uuid())
+  nome            String            @db.VarChar(255)
+  email           String            @unique @db.VarChar(255)
+  telefone        String            @db.VarChar(50)
+  descricao       String?           @db.Text
+  criado_em       DateTime          @default(now()) @db.Timestamp
+  conhecimentos   conhecimentos[]
+
+  @@map("pessoas")
+
+}
+
+model conhecimentos {
+
+  id          String    @id @default(uuid())
+  titulo      String    @db.VarChar(255)
+  descricao   String    @db.Text
+  categoria   String    @db.VarChar(100)
+  nivel       String    @db.VarChar(50)
+  pessoa_id   String
+  pessoa      pessoas   @relation(fields: [pessoa_id], references: [id], onDelete: Cascade)
+
+  @@map("conhecimentos")
+
+}
