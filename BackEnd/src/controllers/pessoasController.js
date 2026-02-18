@@ -1,6 +1,7 @@
 import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
+import prisma from "../PrismaClient.js";
 
+const prisma = new PrismaClient();
 
 const isEmail = (email) =>
   typeof email === "string" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
