@@ -1,24 +1,22 @@
 import { Router } from "express";
-import express from "express";
+import express from "express"; 
 import pessoasController from "./controllers/pessoasController.js";
-import {
-    listarConhecimentos,
-    criarConhecimento,
-    atualizarConhecimento,
-    deletarConhecimento
-} from "./controllers/conhecimentosController.js";
+import conhecimentosController from "./controllers/conhecimentosController.js";
 
 const routes = Router();
 
+// --- Rotas de Pessoas ---
 routes.post("/pessoas", pessoasController.create);
 routes.get("/pessoas", pessoasController.list);
 routes.get("/pessoas/:id", pessoasController.getById);
 routes.put("/pessoas/:id", pessoasController.update);
 routes.delete("/pessoas/:id", pessoasController.remove);
 
-routes.get("/conhecimentos", listarConhecimentos);
-routes.post("/conhecimentos", criarConhecimento);
-routes.put("/conhecimentos/:id", atualizarConhecimento);
-routes.delete("/conhecimentos/:id", deletarConhecimento);
+// --- Rotas de Conhecimentos ---
+routes.post("/conhecimentos", conhecimentosController.create);
+routes.get("/conhecimentos", conhecimentosController.list);
+routes.get("/conhecimentos/:id", conhecimentosController.getById);
+routes.put("/conhecimentos/:id", conhecimentosController.update);
+routes.delete("/conhecimentos/:id", conhecimentosController.remove);
 
 export default routes;

@@ -1,113 +1,130 @@
 import prisma from "../PrismaClient.js";
 
-// GET conhecimentos
+async function create(req, res) {
+  try {
+    const { titulo, descricao, categoria, nivel, pessoa_id } = req.body;
 
-export const listarConhecimentos = async (request, response) => {
+    if (!titulo || typeof titulo !== "string" || titulo.trim().length < 3) {
+      return res
+        .status(400)
+        .json({ error: "Título obrigatório (mín. 3 caracteres)." });
+    }
 
-try{
+    if (!pessoa_id) {
+      return res
+        .status(400)
+        .json({ error: "O ID da pessoa (pessoa_id) é obrigatório." });
+    }
 
-const conhecimentos = await prisma.conhecimentos.findMany({
+    const conhecimento = await prisma.conhecimentos.create({
+      data: {
+        titulo: titulo.trim(),
+        descricao: descricao?.trim() || null,
+        categoria: categoria?.trim() || null,
+        nivel: nivel?.trim() || null,
+        pessoa_id,
+      },
+    });
 
-    include: {pessoa: true}
-
-});
-
-return response.status(200).json(conhecimentos);
-
-}catch(error){
-
-return response.status(500).send();
-
+    return res.status(201).json(conhecimento);
+  } catch (err) {
+    return res
+      .status(500)
+      .json({ error: "Erro ao criar conhecimento.", detail: err.message });
+  }
 }
 
-};
-
-// POST conhecimentos
-
-export const criarConhecimento = async (request, response) => {
-
-const {titulo, descricao, categoria, nivel, pessoa_id} = request.body;
-
-try{
-
-const conhecimentos = await prisma.conhecimentos.create({
-
-    data: {titulo, descricao, categoria, nivel, pessoa_id}
-
-});
-
-return response.status(201).json(conhecimentos);
-
-}catch(error){
-
-return response.status(500).send();
-
+async function list(req, res) {
+  try {
+    const conhecimentos = await prisma.conhecimentos.findMany({
+      include: { pessoa: true },
+      orderBy: { id: "desc" }, 
+    });
+    return res.status(200).json(conhecimentos);
+  } catch (err) {
+    return res
+      .status(500)
+      .json({ error: "Erro ao listar conhecimentos.", detail: err.message });
+  }
 }
 
-};
+async function getById(req, res) {
+  try {
+    const { id } = req.params;
+    if (!id) return res.status(400).json({ error: "ID inválido." });
 
-// PUT conhecimentos
+    const conhecimento = await prisma.conhecimentos.findUnique({
+      where: { id },
+      include: { pessoa: true },
+    });
 
-export const atualizarConhecimento = async (request, response) => {
+    if (!conhecimento) {
+      return res.status(404).json({ error: "Conhecimento não encontrado." });
+    }
 
-const {titulo, descricao, categoria, nivel, pessoa_id} = request.body;
-const {id} = request.params;
-
-try{
-
-const conhecimentos = await prisma.conhecimentos.findUnique({where: {id}});
-
-if(!conhecimentos){
-
-    return response.status(404).json("Conhecimento não encontrado :(");
-
+    return res.status(200).json(conhecimento);
+  } catch (err) {
+    return res
+      .status(500)
+      .json({ error: "Erro ao buscar conhecimento.", detail: err.message });
+  }
 }
 
-const conhecimentosUpdated = await prisma.conhecimentos.update({
+async function update(req, res) {
+  try {
+    const { id } = req.params;
+    if (!id) return res.status(400).json({ error: "ID inválido." });
 
-    data: {titulo, descricao, categoria, nivel, pessoa_id},
-    where: {id}
+    const { titulo, descricao, categoria, nivel, pessoa_id } = req.body;
 
-});
+    const existe = await prisma.conhecimentos.findUnique({ where: { id } });
+    if (!existe) {
+      return res.status(404).json({ error: "Conhecimento não encontrado." });
+    }
 
-return response.status(200).json(conhecimentosUpdated);
+    const conhecimentoAtualizado = await prisma.conhecimentos.update({
+      where: { id },
+      data: {
+        titulo: titulo?.trim(),
+        descricao: descricao?.trim(),
+        categoria: categoria?.trim(),
+        nivel: nivel?.trim(),
+        pessoa_id,
+      },
+    });
 
-}catch(error){
-
-return response.status(500).send();
-
+    return res.status(200).json(conhecimentoAtualizado);
+  } catch (err) {
+    return res
+      .status(500)
+      .json({ error: "Erro ao atualizar conhecimento.", detail: err.message });
+  }
 }
 
-};
+async function remove(req, res) {
+  try {
+    const { id } = req.params;
+    if (!id) return res.status(400).json({ error: "ID inválido." });
 
-// DELETE conhecimentos
+    const existe = await prisma.conhecimentos.findUnique({ where: { id } });
+    if (!existe) {
+      return res.status(404).json({ error: "Conhecimento não encontrado." });
+    }
 
-export const deletarConhecimento = async (request, response) => {
+    await prisma.conhecimentos.delete({ where: { id } });
 
-const {id} = request.params;
-
-try{
-
-const conhecimentos = await prisma.conhecimentos.findUnique({where: {id}});
-
-if(!conhecimentos){
-
-    return response.status(404).json("Conhecimento não encontrado :(");
-
+    return res.status(200).json({ message: "Conhecimento removido com sucesso." });
+  } catch (err) {
+    return res
+      .status(500)
+      .json({ error: "Erro ao remover conhecimento.", detail: err.message });
+  }
 }
 
-await prisma.conhecimentos.delete({
-
-    where: {id}
-
-});
-
-return response.status(204).send();
-
-}catch(error){
-
-return response.status(500).send();
-
-}
-
+export default {
+  create,
+  list,
+  getById,
+  update,
+  remove,
 };
