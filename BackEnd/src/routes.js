@@ -1,5 +1,5 @@
 import { Router } from "express";
-import express from "express"; 
+
 import pessoasController from "./controllers/pessoasController.js";
 import conhecimentosController from "./controllers/conhecimentosController.js";
 

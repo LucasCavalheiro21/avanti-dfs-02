@@ -10,9 +10,7 @@ async function create(req, res) {
     const { nome, email, telefone, descricao } = req.body;
 
     if (!nome || typeof nome !== "string" || nome.trim().length < 3) {
-      return res
-        .status(400)
-        .json({ error: "Nome obrigatório (mín. 3 caracteres)." });
+      return res.status(400).json({ error: "Nome obrigatório (mín. 3 caracteres)." });
     }
 
     if (!email || !isEmail(email)) {
@@ -38,9 +36,7 @@ async function create(req, res) {
 
     return res.status(201).json(pessoa);
   } catch (err) {
-    return res
-      .status(500)
-      .json({ error: "Erro ao criar pessoa.", detail: err.message });
+    return res.status(500).json({ error: "Erro ao criar pessoa.", detail: err.message });
   }
 }
 
@@ -51,9 +47,7 @@ async function list(req, res) {
     });
     return res.status(200).json(pessoas);
   } catch (err) {
-    return res
-      .status(500)
-      .json({ error: "Erro ao listar pessoas.", detail: err.message });
+    return res.status(500).json({ error: "Erro ao listar pessoas.", detail: err.message });
   }
 }
 
@@ -63,14 +57,11 @@ async function getById(req, res) {
     if (!id) return res.status(400).json({ error: "ID inválido." });
 
     const pessoa = await prisma.pessoas.findUnique({ where: { id } });
-    if (!pessoa)
-      return res.status(404).json({ error: "Pessoa não encontrada." });
+    if (!pessoa) return res.status(404).json({ error: "Pessoa não encontrada." });
 
     return res.status(200).json(pessoa);
   } catch (err) {
-    return res
-      .status(500)
-      .json({ error: "Erro ao buscar pessoa.", detail: err.message });
+    return res.status(500).json({ error: "Erro ao buscar pessoa.", detail: err.message });
   }
 }
 
@@ -82,8 +73,7 @@ async function update(req, res) {
     const { nome, email, telefone, descricao } = req.body;
 
     const existe = await prisma.pessoas.findUnique({ where: { id } });
-    if (!existe)
-      return res.status(404).json({ error: "Pessoa não encontrada." });
+    if (!existe) return res.status(404).json({ error: "Pessoa não encontrada." });
 
     const pessoaAtualizada = await prisma.pessoas.update({
       where: { id },
@@ -97,9 +87,7 @@ async function update(req, res) {
 
     return res.status(200).json(pessoaAtualizada);
   } catch (err) {
-    return res
-      .status(500)
-      .json({ error: "Erro ao atualizar pessoa.", detail: err.message });
+    return res.status(500).json({ error: "Erro ao atualizar pessoa.", detail: err.message });
   }
 }
 
@@ -112,9 +100,7 @@ async function remove(req, res) {
 
     return res.status(200).json({ message: "Pessoa removida com sucesso." });
   } catch (err) {
-    return res
-      .status(500)
-      .json({ error: "Erro ao remover pessoa.", detail: err.message });
+    return res.status(500).json({ error: "Erro ao remover pessoa.", detail: err.message });
   }
 }
 
