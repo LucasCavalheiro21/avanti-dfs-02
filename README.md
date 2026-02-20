@@ -173,8 +173,6 @@ Principais rotas disponíveis para teste:
 
 ## 👥 Equipe de Desenvolvimento
 
-### Back-end
-
 [@Lucas Cavalheiro](https://github.com/LucasCavalheiro21)
 - Setup Inicial e Orquestração: Inicialização do repositório Git e configuração do ambiente de desenvolvimento (gerenciamento de dependências e variáveis de ambiente).
 - Arquitetura de Persistência: Configuração do Prisma ORM, incluindo a definição de providers, geração do Prisma Client e estruturação inicial do schema.prisma.
