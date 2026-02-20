@@ -158,7 +158,7 @@ npm start
 
 O projeto roda, por padrão, em http://localhost:8080
 
-Você pode testar as rotas usando o Insomnia, Postman ou o próprio navegador (para requisições GET).
+Você pode testar as rotas usando o [Insomnia](https://insomnia.rest/) ou o próprio navegador (para requisições GET).
 
 Principais rotas disponíveis para teste:
 
@@ -175,7 +175,7 @@ Principais rotas disponíveis para teste:
 
 ### Back-end
 
-[@Lucas](https://github.com/LucasCavalheiro21)
+[@Lucas Cavalheiro](https://github.com/LucasCavalheiro21)
 - Setup Inicial e Orquestração: Inicialização do repositório Git e configuração do ambiente de desenvolvimento (gerenciamento de dependências e variáveis de ambiente).
 - Arquitetura de Persistência: Configuração do Prisma ORM, incluindo a definição de providers, geração do Prisma Client e estruturação inicial do schema.prisma.
 
