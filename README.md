@@ -178,16 +178,16 @@ Principais rotas disponíveis para teste:
 - Setup Inicial e Orquestração: Inicialização do repositório Git e configuração do ambiente de desenvolvimento (gerenciamento de dependências e variáveis de ambiente).
 - Arquitetura de Persistência: Configuração do Prisma ORM, incluindo a definição de providers, geração do Prisma Client e estruturação inicial do schema.prisma.
 
-[@Isaias](https://github.com/isaias30silva)
+[@Isaias Menezes Silva](https://github.com/isaias30silva)
 - Core e Routing: Configuração do ponto de entrada da aplicação (server.js) e estruturação da malha de rotas (routes.js), assegurando o correto direcionamento das requisições HTTP para seus respectivos controllers.
 
-[@Matheus](https://github.com/mc4rvalho)
+[@Matheus da Silva Carvalho](https://github.com/mc4rvalho)
 - ​Gestão de Entidades (Conhecimentos): Implementação do conhecimentosController, sendo responsável por toda a lógica de negócio e operações CRUD (Create, Read, Update, Delete) para o gerenciamento de competências.
 
-[@Pedro](https://github.com/pedrofernandesx)
+[@Pedro Fernandes](https://github.com/pedrofernandesx)
 - Gestão de Entidades (Pessoas): Desenvolvimento do módulo pessoasController, responsável pela persistência e manipulação de dados referentes aos usuários/perfis no sistema via operações CRUD.
 
-[@Giselle](https://github.com/giswolfie)
+[@Giselle Thamyris Oliveira de Morais](https://github.com/giswolfie)
 - ​Modelagem de Dados: Estruturação das tabelas e relacionamentos através do schema.prisma.
 - ​Validação e Testes: Execução de testes de integração e validação de endpoints da API utilizando Insomnia, garantindo a integridade dos dados e o correto funcionamento das rotas HTTP.
 
