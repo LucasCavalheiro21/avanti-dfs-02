@@ -81,7 +81,7 @@ Antes de começar, certifique-se de ter as seguintes ferramentas instaladas em s
 
 - [Git](https://git-scm.com/)
 - [npm](https://npmjs.com/)
-- [Node.js](https://nodejs.org/en/) (v16 ou superior)
+- [Node.js](https://nodejs.org/en/)
 - [PostgreSQL](https://www.postgresql.org/)
 - (Opcional) [DBeaver](https://dbeaver.io/) ou [PgAdmin](https://www.pgadmin.org/) para gerenciar o banco
 
