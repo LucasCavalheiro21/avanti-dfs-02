@@ -80,6 +80,7 @@ O escopo do sistema abrange:
 Antes de começar, certifique-se de ter as seguintes ferramentas instaladas em sua máquina:
 
 - [Git](https://git-scm.com/)
+- [npm](https://npmjs.com/)
 - [Node.js](https://nodejs.org/en/) (v16 ou superior)
 - [PostgreSQL](https://www.postgresql.org/)
 - (Opcional) [DBeaver](https://dbeaver.io/) ou [PgAdmin](https://www.pgadmin.org/) para gerenciar o banco
@@ -194,5 +195,5 @@ Principais rotas disponíveis para teste:
 
 ## © Direitos Autorais
 
-Este software é propriedade intelectual da equipe 2 de desenvolvimento do Projeto DFS-2026.1.
+Este software é propriedade intelectual da **Equipe 2** de desenvolvimento do Projeto DFS-2026.1 da **Escola Atlântico Avanti**.
 **Todos os direitos reservados.** É proibida a cópia, redistribuição ou uso comercial sem autorização expressa dos autores.
