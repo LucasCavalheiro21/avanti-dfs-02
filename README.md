@@ -170,6 +170,19 @@ Principais rotas disponíveis para teste:
 | GET | `/conhecimentos` | Lista os conhecimentos disponíveis |
 | POST | `/conhecimentos` | Cria uma nova oferta |
 
+Facilitando a busca com filtros (busca parcial):
+
+| Filtro | Rota | Descrição |
+|---|---|---|
+| Nome | `/pessoas?nome=carlos` | Buscar por nome |
+| Descrição | `/pessoas?descricao=matematica` | Buscar por palavras-chave |
+| Combinando filtros | `/pessoas?nome=luc&descricao=professor` | Buscas específicas |
+| Título | `/conhecimentos?titulo=javascript` | Buscar por título |
+| Descrição | `/conhecimentos?descricao=programação` | Buscar por palavras-chave |
+| Categoria | `/conhecimentos?categoria=educa` | Buscar por categorias |
+| Nível | `/conhecimentos?nivel=intermed` | Buscar por níveis |
+| Combinando filtros | `/conhecimentos?titulo=mat&categoria=educação&nivel=básico` | Buscas específicas |
+
 ---
 
 ## 👥 Equipe de Desenvolvimento

@@ -5,7 +5,7 @@ const isEmail = (email) =>
 
 const onlyDigits = (v) => String(v || "").replace(/\D/g, "");
 
-// criando usuarios/pessoas
+// criando pessoas
 
 async function create(req, res) {
   try {
@@ -46,10 +46,34 @@ async function create(req, res) {
 
 async function list(req, res) {
   try {
+
+    const { nome, descricao } = req.query;
+
     const pessoas = await prisma.pessoas.findMany({
-      orderBy: { criado_em: "desc" },
+
+      // adicionando filtros
+
+      where: {
+        ...(nome && {
+          nome: {
+            contains: nome,
+            mode: "insensitive"
+          }
+        }),
+        ...(descricao && {
+          descricao: {
+            contains: descricao,
+            mode: "insensitive"
+          }
+        })
+      },
+
+      include: { conhecimentos: true },
+      orderBy: { criado_em: "asc" },
     });
+
     return res.status(200).json(pessoas);
+
   } catch (err) {
     return res.status(500).json({ error: "Erro ao listar pessoas.", detail: err.message });
   }

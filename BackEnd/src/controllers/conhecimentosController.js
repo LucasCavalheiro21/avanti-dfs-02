@@ -40,11 +40,49 @@ async function create(req, res) {
 
 async function list(req, res) {
   try {
+
+    const { titulo, descricao, categoria, nivel } = req.query;
+
     const conhecimentos = await prisma.conhecimentos.findMany({
+
+      // adicionando filtros
+
+      where: {
+        ...(titulo && {
+          titulo: {
+            contains: titulo,
+            mode: "insensitive"
+          }
+        }),
+
+        ...(descricao && {
+          descricao: {
+            contains: descricao,
+            mode: "insensitive"
+          }
+        }),
+
+        ...(categoria && {
+          categoria: {
+            contains: categoria,
+            mode: "insensitive"
+          }
+        }),
+
+        ...(nivel && {
+          nivel: {
+            contains: nivel,
+            mode: "insensitive"
+          }
+        })
+      },
+
       include: { pessoa: true },
-      orderBy: { id: "desc" }, 
+      orderBy: { titulo: "asc" }, 
     });
+
     return res.status(200).json(conhecimentos);
+
   } catch (err) {
     return res
       .status(500)
