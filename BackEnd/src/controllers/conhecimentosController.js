@@ -1,5 +1,7 @@
 import prisma from "../PrismaClient.js";
 
+// criando conhecimentos
+
 async function create(req, res) {
   try {
     const { titulo, descricao, categoria, nivel, pessoa_id } = req.body;
@@ -34,6 +36,8 @@ async function create(req, res) {
   }
 }
 
+// buscando todos os conhecimentos
+
 async function list(req, res) {
   try {
     const conhecimentos = await prisma.conhecimentos.findMany({
@@ -47,6 +51,8 @@ async function list(req, res) {
       .json({ error: "Erro ao listar conhecimentos.", detail: err.message });
   }
 }
+
+// buscando conhecimentos por ID
 
 async function getById(req, res) {
   try {
@@ -69,6 +75,8 @@ async function getById(req, res) {
       .json({ error: "Erro ao buscar conhecimento.", detail: err.message });
   }
 }
+
+// editar conhecimentos
 
 async function update(req, res) {
   try {
@@ -100,6 +108,8 @@ async function update(req, res) {
       .json({ error: "Erro ao atualizar conhecimento.", detail: err.message });
   }
 }
+
+// excluir conhecimentos
 
 async function remove(req, res) {
   try {
