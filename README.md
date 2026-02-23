@@ -185,6 +185,34 @@ Facilitando a busca com filtros (busca parcial):
 
 ---
 
+## 🔮 Próximos Passos
+
+O projeto entrará em uma nova fase de evolução, focada em **segurança da aplicação** e no desenvolvimento da **camada de apresentação (Front-End)**.
+
+### 🔐 Autenticação e Autorização (Back-End)
+
+- Implementação de autenticação baseada em **JWT (JSON Web Token)**;
+- Criptografia de senhas utilizando **bcrypt**;
+- Criação de rota de login com validação de credenciais;
+- Implementação de middleware para proteção de rotas privadas;
+- Controle de autorização garantindo que usuários possam editar ou excluir apenas suas próprias ofertas;
+- Estruturação de controle de acesso baseado em identidade do usuário autenticado.
+
+### 🎨 Desenvolvimento do Front-End
+
+O frontend será desenvolvido com **ReactJS**, fornecendo uma interface simples, responsiva e intuitiva, integrada à API REST do backend.
+
+#### Funcionalidades previstas:
+
+- Exibir a lista de conhecimentos disponíveis;
+- Implementar formulários para cadastro de pessoas e ofertas;
+- Permitir edição e remoção das ofertas;
+- Desenvolver uma **landing page** apresentando a proposta da plataforma;
+- Implementar autenticação no cliente (login e controle de sessão);
+- Realizar integração completa com a API via requisições HTTP.
+
+---
+
 ## 👥 Equipe de Desenvolvimento
 
 [@Lucas Cavalheiro](https://github.com/LucasCavalheiro21)
