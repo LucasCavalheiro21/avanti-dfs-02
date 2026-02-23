@@ -183,7 +183,6 @@ Facilitando a busca com filtros (busca parcial):
 | Nível | `/conhecimentos?nivel=intermed` | Buscar por níveis |
 | Combinando filtros | `/conhecimentos?titulo=mat&categoria=educação` | Buscas específicas |
 
-```HTML
 <table>
   <thead>
     <tr>
@@ -210,7 +209,6 @@ Facilitando a busca com filtros (busca parcial):
       <td><code>/pessoas?nome=luc&descricao=professor</code></td>
       <td>Buscas específicas</td>
     </tr>
-
     <tr>
       <td rowspan="5"><strong>conhecimentos</strong></td>
       <td>Título</td>
@@ -239,7 +237,6 @@ Facilitando a busca com filtros (busca parcial):
     </tr>
   </tbody>
 </table>
-```
 
 ---
 
