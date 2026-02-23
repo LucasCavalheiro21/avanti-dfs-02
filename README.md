@@ -181,7 +181,65 @@ Facilitando a busca com filtros (busca parcial):
 | Descrição | `/conhecimentos?descricao=programação` | Buscar por palavras-chave |
 | Categoria | `/conhecimentos?categoria=educa` | Buscar por categorias |
 | Nível | `/conhecimentos?nivel=intermed` | Buscar por níveis |
-| Combinando filtros | `/conhecimentos?titulo=mat&categoria=educação&nivel=básico` | Buscas específicas |
+| Combinando filtros | `/conhecimentos?titulo=mat&categoria=educação` | Buscas específicas |
+
+```HTML
+<table>
+  <thead>
+    <tr>
+      <th>Recurso</th>
+      <th>Filtro</th>
+      <th>Rota</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="3"><strong>pessoas</strong></td>
+      <td>Nome</td>
+      <td><code>/pessoas?nome=carlos</code></td>
+      <td>Buscar por nome</td>
+    </tr>
+    <tr>
+      <td>Descrição</td>
+      <td><code>/pessoas?descricao=matematica</code></td>
+      <td>Buscar por palavras-chave</td>
+    </tr>
+    <tr>
+      <td>Combinando filtros</td>
+      <td><code>/pessoas?nome=luc&descricao=professor</code></td>
+      <td>Buscas específicas</td>
+    </tr>
+
+    <tr>
+      <td rowspan="5"><strong>conhecimentos</strong></td>
+      <td>Título</td>
+      <td><code>/conhecimentos?titulo=javascript</code></td>
+      <td>Buscar por título</td>
+    </tr>
+    <tr>
+      <td>Descrição</td>
+      <td><code>/conhecimentos?descricao=programação</code></td>
+      <td>Buscar por palavras-chave</td>
+    </tr>
+    <tr>
+      <td>Categoria</td>
+      <td><code>/conhecimentos?categoria=educa</code></td>
+      <td>Buscar por categorias</td>
+    </tr>
+    <tr>
+      <td>Nível</td>
+      <td><code>/conhecimentos?nivel=intermed</code></td>
+      <td>Buscar por níveis</td>
+    </tr>
+    <tr>
+      <td>Combinando filtros</td>
+      <td><code>/conhecimentos?titulo=mat&categoria=educação</code></td>
+      <td>Buscas específicas</td>
+    </tr>
+  </tbody>
+</table>
+```
 
 ---
 
