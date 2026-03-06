@@ -1,19 +1,15 @@
 import { Router } from "express";
-
 import pessoasController from "./controllers/pessoasController.js";
 import conhecimentosController from "./controllers/conhecimentosController.js";
 
 const routes = Router();
 
-// --- Rotas de Pessoas ---
-
+routes.post("/login", pessoasController.login);
 routes.post("/pessoas", pessoasController.create);
 routes.get("/pessoas", pessoasController.list);
 routes.get("/pessoas/:id", pessoasController.getById);
 routes.put("/pessoas/:id", pessoasController.update);
 routes.delete("/pessoas/:id", pessoasController.remove);
-
-// --- Rotas de Conhecimentos ---
 
 routes.post("/conhecimentos", conhecimentosController.create);
 routes.get("/conhecimentos", conhecimentosController.list);
