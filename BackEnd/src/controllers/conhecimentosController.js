@@ -1,7 +1,5 @@
 import prisma from "../PrismaClient.js";
 
-// criando conhecimentos
-
 async function create(req, res) {
   try {
     const { titulo, descricao, categoria, nivel, pessoa_id } = req.body;
@@ -36,61 +34,52 @@ async function create(req, res) {
   }
 }
 
-// buscando todos os conhecimentos
-
 async function list(req, res) {
   try {
-
     const { titulo, descricao, categoria, nivel } = req.query;
 
     const conhecimentos = await prisma.conhecimentos.findMany({
-
-      // adicionando filtros
-
       where: {
         ...(titulo && {
           titulo: {
             contains: titulo,
-            mode: "insensitive"
-          }
+            mode: "insensitive",
+          },
         }),
 
         ...(descricao && {
           descricao: {
             contains: descricao,
-            mode: "insensitive"
-          }
+            mode: "insensitive",
+          },
         }),
 
         ...(categoria && {
           categoria: {
             contains: categoria,
-            mode: "insensitive"
-          }
+            mode: "insensitive",
+          },
         }),
 
         ...(nivel && {
           nivel: {
             contains: nivel,
-            mode: "insensitive"
-          }
-        })
+            mode: "insensitive",
+          },
+        }),
       },
 
       include: { pessoa: true },
-      orderBy: { titulo: "asc" }, 
+      orderBy: { titulo: "asc" },
     });
 
     return res.status(200).json(conhecimentos);
-
   } catch (err) {
     return res
       .status(500)
       .json({ error: "Erro ao listar conhecimentos.", detail: err.message });
   }
 }
-
-// buscando conhecimentos por ID
 
 async function getById(req, res) {
   try {
@@ -113,8 +102,6 @@ async function getById(req, res) {
       .json({ error: "Erro ao buscar conhecimento.", detail: err.message });
   }
 }
-
-// editar conhecimentos
 
 async function update(req, res) {
   try {
@@ -147,8 +134,6 @@ async function update(req, res) {
   }
 }
 
-// excluir conhecimentos
-
 async function remove(req, res) {
   try {
     const { id } = req.params;
@@ -161,7 +146,9 @@ async function remove(req, res) {
 
     await prisma.conhecimentos.delete({ where: { id } });
 
-    return res.status(200).json({ message: "Conhecimento removido com sucesso." });
+    return res
+      .status(200)
+      .json({ message: "Conhecimento removido com sucesso." });
   } catch (err) {
     return res
       .status(500)
