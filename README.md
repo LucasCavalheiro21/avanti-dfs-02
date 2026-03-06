@@ -1,6 +1,7 @@
 # 📚 Banco de Trocas de Conhecimento
 
-![Status](https://img.shields.io/badge/Status-em_desenvolvimento-orange) ![License](https://img.shields.io/badge/License-proprietary-red)
+![Status](https://img.shields.io/badge/Status-finalizado-green)
+![License](https://img.shields.io/badge/License-proprietary-red)
 
 ## 📌 Introdução
 
@@ -185,52 +186,24 @@ Facilitando a busca com filtros (busca parcial):
 
 ---
 
-## 🔮 Próximos Passos
-
-O projeto entrará em uma nova fase de evolução, focada em **segurança da aplicação** e no desenvolvimento da **camada de apresentação (Front-End)**.
-
-### 🔐 Autenticação e Autorização (Back-End)
-
-- Implementação de autenticação baseada em **JWT (JSON Web Token)**;
-- Criptografia de senhas utilizando **bcrypt**;
-- Criação de rota de login com validação de credenciais;
-- Implementação de middleware para proteção de rotas privadas;
-- Controle de autorização garantindo que usuários possam editar ou excluir apenas suas próprias ofertas;
-- Estruturação de controle de acesso baseado em identidade do usuário autenticado.
-
-### 🎨 Desenvolvimento do Front-End
-
-O frontend será desenvolvido com **ReactJS**, fornecendo uma interface simples, responsiva e intuitiva, integrada à API REST do backend.
-
-#### Funcionalidades previstas:
-
-- Exibir a lista de conhecimentos disponíveis;
-- Implementar formulários para cadastro de pessoas e ofertas;
-- Permitir edição e remoção das ofertas;
-- Desenvolver uma **landing page** apresentando a proposta da plataforma;
-- Implementar autenticação no cliente (login e controle de sessão);
-- Realizar integração completa com a API via requisições HTTP.
-
----
-
 ## 👥 Equipe de Desenvolvimento
 
 [@Lucas Cavalheiro](https://github.com/LucasCavalheiro21)
-- Setup Inicial e Orquestração: Inicialização do repositório Git e configuração do ambiente de desenvolvimento (gerenciamento de dependências e variáveis de ambiente).
-- Arquitetura de Persistência: Configuração do Prisma ORM, incluindo a definição de providers, geração do Prisma Client e estruturação inicial do schema.prisma.
+- Inicialização do repositório Git e configuração do ambiente de desenvolvimento (gerenciamento de dependências e variáveis de ambiente).
+- Configuração do Prisma ORM, incluindo a definição de providers, geração do Prisma Client e estruturação inicial do schema.prisma.
 
 [@Isaias Menezes Silva](https://github.com/isaias30silva)
-- Core e Routing: Configuração do ponto de entrada da aplicação (server.js) e estruturação da malha de rotas (routes.js), assegurando o correto direcionamento das requisições HTTP para seus respectivos controllers.
+- Configuração do ponto de entrada da aplicação (server.js) e estruturação da malha de rotas (routes.js), assegurando o correto direcionamento das requisições HTTP para seus respectivos controllers.
 
 [@Matheus da Silva Carvalho](https://github.com/mc4rvalho)
-- ​Gestão de Entidades (Conhecimentos): Implementação do conhecimentosController, sendo responsável por toda a lógica de negócio e operações CRUD (Create, Read, Update, Delete) para o gerenciamento de competências.
+- Implementação do conhecimentosController, sendo responsável por toda a lógica de negócio e operações CRUD (Create, Read, Update, Delete) para o gerenciamento de competências.
 
 [@Pedro Fernandes](https://github.com/pedrofernandesx)
-- Gestão de Entidades (Pessoas): Desenvolvimento do módulo pessoasController, responsável pela persistência e manipulação de dados referentes aos usuários/perfis no sistema via operações CRUD.
+- Desenvolvimento do módulo pessoasController, responsável pela persistência e manipulação de dados referentes aos usuários/perfis no sistema via operações CRUD.
 
 [@Giselle Thamyris Oliveira de Morais](https://github.com/giswolfie)
-- ​Modelagem de Dados: Estruturação das tabelas e relacionamentos através do schema.prisma.
-- ​Validação e Testes: Execução de testes de integração e validação de endpoints da API utilizando Insomnia, garantindo a integridade dos dados e o correto funcionamento das rotas HTTP.
+- Estruturação das tabelas e relacionamentos através do schema.prisma.
+- Execução de testes de integração e validação de endpoints da API utilizando Insomnia, garantindo a integridade dos dados e o correto funcionamento das rotas HTTP.
 
 ---
 
