@@ -18,7 +18,7 @@ Esta API foi desenvolvida para alimentar a interface do SkillMatch.
 🔗 **Link para o Front-end:** [SkillMatch Interface](https://github.com/isaias30silva/avanti-dfs-02.git)
 
 ---
-
+ 
 ## ⚙️ Funcionalidades do Sistema
 
 O escopo do sistema abrange:
