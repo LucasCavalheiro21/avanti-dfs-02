@@ -149,10 +149,11 @@ Para as rotas de POST, configure o corpo da requisição no Insomnia como JSON:
 {
     "nome": "Lucas",
     "email": "lucas@gmail.com",
-    "password": "1234",
-    "isAdmin": true,
+    "cpf": "12345678900",
+    "senha": "1234",
     "telefone": "(81) 98765-4321",
-    "descricao": "Estudante"
+    "buscando": "professor",
+    "descricao": "Formado em Engenharia."
 }
 ```
 
